@@ -47,4 +47,31 @@ public class CalculadoraTestes
         // Then
         Assert.Equal(12, result);
     }
+
+    [Fact]
+    public void DeveVerificarSe4EhParERetornarVerdadeiro()
+    {
+        // Given - Arrange
+        int num = 4;
+        // When - Act
+        bool result = _calc.Ehpar(num);
+        //bool result2 = _calc.Ehpar(5);
+        // Then - Assert
+        Assert.True(result);
+    }
+
+    [Theory] //conjunto de cenários
+    [InlineData(new int[] { 2, 8, 11} )]
+    [InlineData(new int[] { 12, 14 })]// passar paramêtros, para cada inlinedata é um teste diferente
+    public void DeveVerificarSeOsNumerosSaoParesERetornarVerdadeiro(int[] numeros) //valor dos inline datas
+    {
+        //uma unica linha
+        Assert.All(numeros, num => Assert.True(_calc.Ehpar(num)));
+
+        // foreach (var num in numeros)
+        // {
+        //     Assert.True(_calc.Ehpar(num));
+        // }
+    }
+    //2, 4, 6, 8, 10
 }
