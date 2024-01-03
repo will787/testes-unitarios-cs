@@ -43,7 +43,7 @@ public class CalculadoraTestes
         int a = 3;
         int b = 4;
         // When
-        int result = _calc.Multiplicar(3, 4);
+        int result = _calc.Multiplicar(a, b);
         // Then
         Assert.Equal(12, result);
     }
@@ -61,7 +61,7 @@ public class CalculadoraTestes
     }
 
     [Theory] //conjunto de cenários
-    [InlineData(new int[] { 2, 8, 11} )]
+    [InlineData(new int[] { 2, 8, 10} )]
     [InlineData(new int[] { 12, 14 })]// passar paramêtros, para cada inlinedata é um teste diferente
     public void DeveVerificarSeOsNumerosSaoParesERetornarVerdadeiro(int[] numeros) //valor dos inline datas
     {
